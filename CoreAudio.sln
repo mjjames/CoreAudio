@@ -13,7 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAudioConsole.Framework.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAudioForms.Framework.Sample", "samples\CoreAudioForms.Framework.Sample\CoreAudioForms.Framework.Sample.csproj", "{3C36B004-A097-4640-BFCA-EA810434FEF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreAudioForms.Core.Sample", "samples\CoreAudioForms.Core.Sample\CoreAudioForms.Core.Sample.csproj", "{F123A876-C490-405B-9C1C-04C96A59195B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoreAudioForms.Core.Sample", "samples\CoreAudioForms.Core.Sample\CoreAudioForms.Core.Sample.csproj", "{F123A876-C490-405B-9C1C-04C96A59195B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D9D6E2F-D5BE-4D1A-9106-EB295EF0BF45}"
+	ProjectSection(SolutionItems) = preProject
+		version.json = version.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

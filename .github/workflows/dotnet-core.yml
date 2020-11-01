@@ -1,0 +1,41 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # avoid shallow clone so nbgv can do its work.
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+    - name: Setup MSBuild Path
+      uses: warrenbuckley/Setup-MSBuild@v1
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+    - name: Restore NuGet Packages
+      run: nuget restore CoreAudio.sln 
+    - name: Build Solution
+      run: msbuild CoreAudio.sln /p:Configuration=Release
+    - name: Pack CoreAudio library
+      run: dotnet pack CoreAudio/CoreAudio.csproj -c Release --include-symbols
+    - name: Publish NuGet
+      uses: brandedoutcast/publish-nuget@v2.5.5
+      with:
+          PROJECT_FILE_PATH: CoreAudio/CoreAudio.csproj
+          NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
+          NUGET_SOURCE: ${{secrets.GPR_URI}}
+          INCLUDE_SYMBOLS: true
+          PACKAGE_NAME: mjjames.CoreAudio
+          VERSION_STATIC: 1.0.0
+
