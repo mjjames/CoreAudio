@@ -37,4 +37,5 @@ jobs:
           NUGET_SOURCE: ${{secrets.GPR_URI}}
           INCLUDE_SYMBOLS: true
           PACKAGE_NAME: mjjames.CoreAudio
+          VERSION_STATIC: 1.0.0
 
