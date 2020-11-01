@@ -19,10 +19,14 @@ jobs:
         dotnet-version: 3.1.x
     - name: Setup MSBuild Path
       uses: warrenbuckley/Setup-MSBuild@v1
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
     - name: Restore NuGet Packages
-      run: nuget restore SimpleFrameworkApp.sln 
-    - name: Build and Publish Web App
+      run: nuget restore CoreAudio.sln 
+    - name: Build Solution
       run: msbuild CoreAudio.sln /p:Configuration=Release
+    - name: Pack CoreAudio library
+      run: dotnet pack CoreAudio/CoreAudio.csproj --no-build
     - name: Publish NuGet
       uses: brandedoutcast/publish-nuget@v2.5.5
       with:
