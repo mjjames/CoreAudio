@@ -34,12 +34,8 @@ jobs:
       with:
         path: 'CoreAudio/**/*nupkg'
     - name: Publish NuGet
-      uses: brandedoutcast/publish-nuget@v2.5.5
+      uses: jcansdale/gpr@v0.1.257
       with:
-          PROJECT_FILE_PATH: CoreAudio/CoreAudio.csproj
-          NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
-          NUGET_SOURCE: ${{secrets.GPR_URI}}
-          INCLUDE_SYMBOLS: true
-          PACKAGE_NAME: mjjames.CoreAudio
-          VERSION_STATIC: 1.0.0
+          command: push
+          path: CoreAudio\CoreAudio\bin\Release\
 
