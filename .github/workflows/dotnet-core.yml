@@ -29,13 +29,15 @@ jobs:
       run: msbuild CoreAudio.sln /p:Configuration=Release
     - name: Pack CoreAudio library
       run: dotnet pack CoreAudio/CoreAudio.csproj -c Release --include-symbols
-    - name: Publish NuGet
-      uses: brandedoutcast/publish-nuget@v2.5.5
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.0
+      with:
+        path: 'CoreAudio/**/*nupkg'
+    - name: Publish to NuGet
+      uses: brandedoutcast/publish-nuget@v2.5.2
       with:
           PROJECT_FILE_PATH: CoreAudio/CoreAudio.csproj
-          NUGET_KEY: ${{secrets.GITHUB_TOKEN}}
-          NUGET_SOURCE: ${{secrets.GPR_URI}}
-          INCLUDE_SYMBOLS: true
-          PACKAGE_NAME: mjjames.CoreAudio
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
           VERSION_STATIC: 1.0.0
-
+          PACKAGE_NAME: mjjames.CoreAudio
+          INCLUDE_SYMBOLS: true
