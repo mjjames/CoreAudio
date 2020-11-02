@@ -2,8 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<Authors>Ray Molenkamp, Xavier Flix, John de Jong</Authors>
-		<Company>Ray Molenkamp, Xavier Flix, John de Jong</Company>
+		<Authors>Ray Molenkamp, Xavier Flix, John de Jong, mjjames</Authors>
+		<Company>Ray Molenkamp, Xavier Flix, John de Jong, mjjames</Company>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<Description>Windows CoreAudio wrapper for .NET</Description>
 		<RepositoryType>git</RepositoryType>
