@@ -10,7 +10,7 @@
 		<PackageTags>coreaudio audio</PackageTags>
 		<RepositoryUrl>https://github.com/morphx666/CoreAudio</RepositoryUrl>
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-		<PackageId>xfx.CoreAudio</PackageId>
+		<PackageId>mjjames.CoreAudio</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>
