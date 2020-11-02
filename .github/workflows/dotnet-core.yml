@@ -33,8 +33,11 @@ jobs:
       uses: actions/upload-artifact@v2.2.0
       with:
         path: 'CoreAudio/**/*nupkg'
-    - name: Add GPR Source
-      run: nuget sources Add -Name "GPR" -Source ${{ secrets.GPR_URI }} -UserName CodeAudio -Password ${{ secrets.GITHUB_TOKEN }}
-    - name: Push to GitHub Packages
-      run: nuget push CoreAudio\**\*.nupkg -Source "GPR" 
-
+    - name: Publish to NuGet
+      uses: brandedoutcast/publish-nuget@v2.5.2
+      with:
+          PROJECT_FILE_PATH: CoreAudio/CoreAudio.csproj
+          NUGET_KEY: ${{ secrets.NUGET_KEY }}
+          VERSION_STATIC: 1.0.0
+          PACKAGE_NAME: mjjames.CoreAudio
+          INCLUDE_SYMBOLS: true
