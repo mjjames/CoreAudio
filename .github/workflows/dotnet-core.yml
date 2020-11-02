@@ -36,5 +36,5 @@ jobs:
     - name: Add GPR Source
       run: nuget sources Add -Name "GPR" -Source ${{ secrets.GPR_URI }} -UserName CodeAudio -Password ${{ secrets.GITHUB_TOKEN }}
     - name: Push to GitHub Packages
-      run: nuget push CoreAudio/**/*.nupkg -Source "GPR" 
+      run: nuget push CoreAudio\**\*.nupkg -Source "GPR" 
 
